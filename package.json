@@ -1,0 +1,12 @@
+{
+  "name": "apex-rings-capture",
+  "version": "0.5.1",
+  "description": "Local browser extension for Apex Legends ring-learning screenshots",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests.mjs",
+    "check:release": "node scripts/check-release.mjs"
+  }
+}

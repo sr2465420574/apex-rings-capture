@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Apex 圈型截图（当前浏览器）",
+  "version": "0.5.1",
+  "description": "用于非商业猜圈学习：在已授权的 Apex Legends Status 标签页保存多阶段圈型截图。",
+  "permissions": ["activeTab", "scripting", "storage", "downloads", "alarms"],
+  "optional_permissions": ["power"],
+  "action": {"default_title": "采集当前 Apex 页面"},
+  "background": {"service_worker": "background.js", "type": "module"}
+}

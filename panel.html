@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Apex 圈型采集</title>
+<style>
+body{max-width:1000px;margin:40px auto;padding:0 24px;background:#13161d;color:#e7ebf2;font:16px/1.7 system-ui}
+button{padding:10px 18px;margin:5px;background:#26384c;color:white;border:1px solid #66809c;border-radius:7px;cursor:pointer}
+button:disabled{opacity:.4;cursor:default}pre{white-space:pre-wrap;background:#090d13;padding:18px;border-radius:8px;max-height:400px;overflow:auto}img{max-width:600px;width:100%}label{display:block;margin:15px 0}.note{color:#bec9d6}input{margin-right:8px}
+</style></head><body>
+<h1>Apex 圈型采集</h1>
+<p class="note">非商业猜圈学习工具，代码由 OpenAI Codex 生成；与 EA、Respawn、Apex Legends Status 或 OpenAI 无官方隶属或背书关系。使用及版权说明见项目 README。</p>
+<p id="target">正在连接你授权的原标签页……</p>
+<p class="note">控制台现在使用独立小窗口，请保持它和比赛浏览器窗口可见，不最小化。原比赛标签页用于截图；不要切走它或滚动地图。后台检查器可在控制台心跳中断后重新加载控制台并续跑，但无法唤醒已休眠的电脑。网站验证超时或权限限制仍会暂停。</p>
+<label>自动验证最长等待时间（秒）：<input id="verifySeconds" type="number" min="5" max="600" value="90"></label>
+<label><input id="keepAwake" type="checkbox">采集期间保持电脑和屏幕唤醒（可选，首次开启需要浏览器授权；结束或暂停后恢复）</label>
+<label><input id="saveDiagnostics" type="checkbox">失败时导出本地诊断（默认关闭；可能包含网页标题、链接和控件信息，分享前需检查）</label>
+<button id="discover">1. 收集当前列表</button><button id="sample">2. 采集第一场</button>
+<label><input type="checkbox" id="approved">我已检查样例：完整地图、多阶段圈线且遮挡已隐藏；后续列表沿用相同设置自动采集</label>
+<label for="nextSources">当前列表完成后，依次采集这些赛事列表（每行一个网址；留空只处理当前列表）：</label>
+<textarea id="nextSources" rows="5" style="width:100%;box-sizing:border-box" placeholder="https://apexlegendsstatus.com/algs/Y6-Split2/Pro-League/NA/Overview#tab_replaysandbans"></textarea>
+<p class="note">当前列表会先处理，重复网址自动去重。切换赛区后自动收集并截图，无需逐赛区点击。各列表分别保存 CSV 和断点；普通失败重试后记录并继续，验证超时或权限限制会暂停整个任务。</p>
+<button id="batch">3. 批量续跑（含后续列表）</button><button id="stop">暂停</button><button id="csv">导出当前列表 CSV</button>
+<p id="status">等待操作</p><pre id="log"></pre><img id="preview" alt="本次样例预览" hidden>
+<script type="module" src="panel.js"></script></body></html>
